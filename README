@@ -1,0 +1,1 @@
+Basic pipeline for searching, filtering and pulling bulk level-1 landsat products from USGS repositories, and performing histogram equalization, band concatenation, pansharpening, and conversion to TOAR reflectance values in Grass GIS python libraries
