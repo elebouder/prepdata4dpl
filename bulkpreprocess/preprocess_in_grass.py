@@ -23,17 +23,19 @@ def preprocess(reflbandnames, panbandnames, dataset, outputraster, scene):
     for f in os.listdir(dataset):
        if f.endswith('TIF'):
            fs = f.split('.')[0]
-           if fs[-1] in bmatch:
-               num = fs[-1]
-               print num
-               print dataset + '/' + f
-               read2_command('r.external', input=dataset + '/' + f, output='B' + num, overwrite=True, flags='e')
+           num = fs[-1]
+           if fs[-2] == '1':
+               num = fs[-2:]
+           print num
+           print dataset + '/' + f
+           read2_command('r.external', input=dataset + '/' + f, output='B' + num, overwrite=True, flags='e')
 
 
 
     for file in os.listdir(dataset):
-        if fnmatch.fnmatch(file, '*.txt'):
+        if fnmatch.fnmatch(file, '*MTL.txt'):
             mtl = file
+            print mtl
     metfile = os.path.join(dataset, mtl)
 
     read2_command('i.landsat.toar', input='B', output='B_refl', metfile=metfile, sensor='oli8', overwrite=True)

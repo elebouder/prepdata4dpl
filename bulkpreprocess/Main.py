@@ -14,7 +14,7 @@ def main():
     ### 2) pick a beginning and end date and have everthing on file within that interval
     ####### as data ('period')
 
-    months = [[1, 2016]]
+    months = [[6, 2017]]
 
     start_month = []
     end_month = []
